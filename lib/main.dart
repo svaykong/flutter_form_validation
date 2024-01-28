@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 import 'presentation/pages/login_page.dart';
+import 'presentation/blocs/provider.dart';
 
 void main() {
   /// ensured Flutter initialized everything before start
@@ -20,20 +22,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Form Validation App',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        textTheme: TextTheme(
-          displayMedium: GoogleFonts.notoSans(),
-          bodyMedium: GoogleFonts.notoSans(
-            fontSize: 18.0,
+    return Provider(
+      child: MaterialApp(
+        title: 'Form Validation App',
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+          useMaterial3: true,
+          textTheme: TextTheme(
+            displayMedium: GoogleFonts.notoSans(),
+            bodyMedium: GoogleFonts.notoSans(
+              fontSize: 18.0,
+            ),
           ),
         ),
+        home: const LoginPage(),
+        debugShowCheckedModeBanner: false,
       ),
-      home: const LoginPage(),
-      debugShowCheckedModeBanner: false,
     );
   }
 }

@@ -4,11 +4,13 @@ class ButtonWidget extends StatelessWidget {
   const ButtonWidget({
     super.key,
     required this.title,
-    required this.onPressed,
+    this.disableColor,
+    this.onPressed,
   });
 
   final String title;
-  final VoidCallback onPressed;
+  final Color? disableColor;
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +20,7 @@ class ButtonWidget extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.purple,
+          disabledBackgroundColor: disableColor,
         ),
         child: Text(
           title,

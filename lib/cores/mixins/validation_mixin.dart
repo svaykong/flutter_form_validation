@@ -1,6 +1,6 @@
 import 'package:email_validator/email_validator.dart';
 
-mixin class ValidationMixin {
+mixin ValidationMixin {
   String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
       return "Please enter your email";
